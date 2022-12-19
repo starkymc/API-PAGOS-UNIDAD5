@@ -8,7 +8,7 @@ from versioned.v2.router import api_urlpatterns as api_v2
 
 router = routers.DefaultRouter()
 
-#router.register(r'pagos', api.PagoViewSet, 'pagos')
+router.register(r'pagos', api.PagoViewSet, 'pagos')
 
 urlpatterns = [
 

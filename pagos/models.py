@@ -23,5 +23,25 @@ class Pagos(models.Model):
 class Servicios(models.Model):
     name = models.CharField(max_length=20)
     description = models.CharField(max_length=100)
-    logo = models.FileField()
+    logo = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.name
+
+class Payment_user(models.Model):
+    id_payments = models.AutoField(primary_key=True)
+    usuario = models.ForeignKey(User, on_delete =models.CASCADE, related_name='usersp')
+    servicio = models.ForeignKey(Servicios, on_delete=models.CASCADE,related_name='servicio')
+    monto = models.FloatField(default=0.0)
+    PaymentDate = models.DateField(auto_now_add=True)
+    ExpirationDate = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.id_payments
+
+class Expired_payments(models.Model):
+    id_payments = models.ForeignKey(Payment_user,on_delete =models.CASCADE, related_name='payment_user')
+    Penalty_fee_amount = models.FloatField(default=0.0)
+
+    def __str__(self):
+        return self.Penalty_fee_amount
