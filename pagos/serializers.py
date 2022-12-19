@@ -6,3 +6,5 @@ class PagoSerializer(serializers.ModelSerializer):
         model = Pagos
         fields = '__all__'
         read_only_fields = '__all__',
+
+
