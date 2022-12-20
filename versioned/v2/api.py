@@ -88,7 +88,7 @@ class ServiciosViewset(viewsets.ModelViewSet):
 
     #Permisos de las vistas
     def get_permissions(self):
-        if self.action == 'list' or self.action == 'create':
+        if self.action == 'list':
             permission_classes = [IsAuthenticated]
         else:
             permission_classes = [IsAdminUser]
@@ -120,9 +120,21 @@ class PaymentusersViewset(viewsets.ModelViewSet):
        serializer = self.get_serializer(self.queryset, many=True)
        return Response(serializer.data)
 
+     #crear
+    def create(self, request):
+        if isinstance(request.data, list):
+            serializer = PaymentuserSerializer(data=request.data, many = True)
+        else:
+            serializer = PaymentuserSerializer(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
  #Permisos de las vistas
     def get_permissions(self):
-        if self.action == 'list':
+        if self.action == 'list' or self.action == 'create':
             permission_classes = [IsAuthenticated]
         else:
             permission_classes = [IsAdminUser]
