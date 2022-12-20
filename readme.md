@@ -5,7 +5,7 @@
 
 ## Postman
 ## Creacion de token para poder usar la API
-### Ingresas los email,username y password
+### Ingresar el email,username y password
    http://127.0.0.1:8000/users/jwt/create/
    
 ## Copiar el token y en HEADERS
