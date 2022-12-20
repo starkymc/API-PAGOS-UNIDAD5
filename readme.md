@@ -37,3 +37,14 @@
 ## Versionamiento
     http://127.0.0.1:8000/api/v1/
     http://127.0.0.1:8000/api/v2/
+
+
+## Usuario admin
+    email: admin@admin.com
+    username: admin
+    password: 123
+    
+## Usuario normal
+    email: carlos@gmail.com
+    username: carlos
+    password: 123456789
