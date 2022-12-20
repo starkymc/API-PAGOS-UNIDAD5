@@ -40,8 +40,8 @@ class Payment_user(models.Model):
         return self.id_payments
 
 class Expired_payments(models.Model):
-    id_payments = models.ForeignKey(Payment_user,on_delete =models.CASCADE, related_name='payment_user')
+    payment = models.ForeignKey(Payment_user,on_delete =models.CASCADE, related_name='payment_user')
     Penalty_fee_amount = models.FloatField(default=0.0)
 
     def __str__(self):
-        return self.Penalty_fee_amount
+        return str(self.payment)

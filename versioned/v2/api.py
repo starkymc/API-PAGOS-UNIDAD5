@@ -110,6 +110,7 @@ class PaymentusersViewset(viewsets.ModelViewSet):
     throttle_scope = 'pagos'
 
     
+    
     # listar
     def list(self, request):
        page = self.paginate_queryset(self.queryset)
@@ -140,14 +141,17 @@ class PaymentusersViewset(viewsets.ModelViewSet):
             permission_classes = [IsAdminUser]
         return [permission() for permission in permission_classes]
 
+
 class ExpiredPaymentsViewset(viewsets.ModelViewSet):
     queryset = Expired_payments.objects.all()
-    serializer_class = ExpiredPaymentsSerializer
     pagination_class = StandardResultsSetPagination
      # Defniendo Throttle
     throttle_classes = [ScopedRateThrottle]
     #Throttling 2000rquestxday
     throttle_scope = 'all'
+
+    def get_serializer_class(self):
+        return ExpiredPaymentsSerializer
 
     def list(self, request):
         queryset = Expired_payments.objects.all()
@@ -166,10 +170,9 @@ class ExpiredPaymentsViewset(viewsets.ModelViewSet):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     #Permisos de las vistas
-    def get_permissions(self):
-        if self.action == 'list':
-            permission_classes = [IsAuthenticated]
-        elif self.action == 'list' or self.action == 'create':
-            permission_classes = [IsAdminUser]
-        
-        return [permission() for permission in permission_classes]
+    #def get_permissions(self):
+    #    if self.action == 'list':
+    #        permission_classes = [IsAuthenticated]
+    #    elif self.action == 'list' or self.action == 'create':
+    #        permission_classes = [IsAdminUser]
+    #    return [permission() for permission in permission_classes]
