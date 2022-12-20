@@ -21,4 +21,4 @@ class TodosPagosViewset(viewsets.ModelViewSet):
     # Defniendo Throttle
     #throttle_classes = [ UserRateThrottle,AnonRateThrottle]
     #throttle_classes = [ScopedRateThrottle]
-    #throttle_scope = 'key1'
+    #throttle_scope = 'pagos'

@@ -147,6 +147,7 @@ REST_FRAMEWORK = {
         #'get': '5/min',
         #'post': '2/min',
         'pagos': '1000/day',
+        'all': '2000/day',
 
     }
 }

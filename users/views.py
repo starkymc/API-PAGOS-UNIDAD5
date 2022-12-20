@@ -10,6 +10,7 @@ from .tokens import create_jwt_pair_for_user
 from rest_framework import viewsets
 from .models import User
 from django.shortcuts import redirect
+from rest_framework.permissions import IsAuthenticated,IsAdminUser
 # Create your views here.
 
 
@@ -56,3 +57,4 @@ class LoginView(APIView):
 class GetUsers(viewsets.ReadOnlyModelViewSet):
     serializer_class = GetUserSerializer
     queryset = User.objects.all()
+    #permission_classes = [IsAuthenticated]
