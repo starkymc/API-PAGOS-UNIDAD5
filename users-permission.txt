@@ -1,0 +1,9 @@
+-- ADMIN --
+email: admin@admin.com
+username: admin
+password: 123
+
+-- Usuario normal --
+email: carlos@gmail.com
+username: carlos
+password: 123456789
