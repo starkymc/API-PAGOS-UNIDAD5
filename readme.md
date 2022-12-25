@@ -25,7 +25,7 @@
 </div>
 
 ## En este caso solo si el usuario esta autenticado podra listar todas las vistas y solo crear datos en la vista Payment
-   http://127.0.0.1:8000/api/v2/payment/
+      payment: http://127.0.0.1:8000/api/v2/payment/
 
 ## Si el usuario es admin tiene acceso a todo (CRUD)
       users: http://127.0.0.1:8000/api/v2/users/
