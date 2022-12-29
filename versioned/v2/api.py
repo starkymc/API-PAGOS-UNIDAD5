@@ -87,12 +87,12 @@ class ServiciosViewset(viewsets.ModelViewSet):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     #Permisos de las vistas
-    def get_permissions(self):
-        if self.action == 'list':
-            permission_classes = [IsAuthenticated]
-        else:
-            permission_classes = [IsAdminUser]
-        return [permission() for permission in permission_classes]
+    #def get_permissions(self):
+    #    if self.action == 'list':
+    #        permission_classes = [IsAuthenticated]
+    #    else:
+    #        permission_classes = [IsAdminUser]
+    #    return [permission() for permission in permission_classes]
 
 
 class PaymentusersViewset(viewsets.ModelViewSet):
@@ -134,12 +134,12 @@ class PaymentusersViewset(viewsets.ModelViewSet):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
  #Permisos de las vistas
-    def get_permissions(self):
-        if self.action == 'list' or self.action == 'create':
-            permission_classes = [IsAuthenticated]
-        else:
-            permission_classes = [IsAdminUser]
-        return [permission() for permission in permission_classes]
+    #def get_permissions(self):
+    #    if self.action == 'list' or self.action == 'create':
+    #        permission_classes = [IsAuthenticated]
+    #    else:
+    #        permission_classes = [IsAdminUser]
+    #    return [permission() for permission in permission_classes]
 
 
 class ExpiredPaymentsViewset(viewsets.ModelViewSet):
